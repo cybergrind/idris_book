@@ -58,3 +58,5 @@ biggestTriangle (Primitive _) = Nothing
 biggestTriangle (Combine pic1 pic2) = liftA2 max (biggestTriangle pic1) (biggestTriangle pic2)
 biggestTriangle (Rotate x pic1) = biggestTriangle pic1
 biggestTriangle (Translate x y pic1) = biggestTriangle pic1
+
+
