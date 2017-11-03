@@ -13,3 +13,8 @@ insert x original@(Node tree y tree1)
               LT => Node (insert x tree) y tree1
               EQ => original
               GT => Node tree y (insert x tree1)
+
+
+listToTree : Ord elem => List elem -> Tree elem
+listToTree [] = Empty
+listToTree (x :: xs) = insert x (listToTree xs)
