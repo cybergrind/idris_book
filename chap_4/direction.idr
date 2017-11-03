@@ -53,10 +53,18 @@ pictureArea (Translate x y pic1) = pictureArea pic1
 
 
 biggestTriangle: Picture -> Maybe Double
-biggestTriangle (Primitive t@(Rectangle x y)) = Just (area t)
+biggestTriangle (Primitive t@(Triangle x y)) = Just (area t)
 biggestTriangle (Primitive _) = Nothing
 biggestTriangle (Combine pic1 pic2) = liftA2 max (biggestTriangle pic1) (biggestTriangle pic2)
 biggestTriangle (Rotate x pic1) = biggestTriangle pic1
 biggestTriangle (Translate x y pic1) = biggestTriangle pic1
 
 
+
+testPic1 : Picture
+testPic1 = Combine (Primitive (Triangle 2 3))
+                   (Primitive (Triangle 2 4))
+
+testPic2 : Picture
+testPic2 = Combine (Primitive (Rectangle 1 3))
+                   (Primitive (Circle 4))
