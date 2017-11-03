@@ -18,3 +18,8 @@ insert x original@(Node tree y tree1)
 listToTree : Ord elem => List elem -> Tree elem
 listToTree [] = Empty
 listToTree (x :: xs) = insert x (listToTree xs)
+
+
+treeToList : Ord elem => Tree elem -> List elem
+treeToList Empty = []
+treeToList (Node tree x tree1) = treeToList tree ++ [x] ++ treeToList tree1
